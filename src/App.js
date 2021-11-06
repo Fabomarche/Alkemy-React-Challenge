@@ -6,29 +6,35 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
+import SearchContextProvider from "./context/searchContext";
+
 import NavBar from './components/NavBar';
 import Login from "./components/Login";
-import Home from "./components/Home";
+import HomeContainer from "./components/containers/HomeContainer";
 
 
 function App() {
   return (
+    <SearchContextProvider>
     <Router>
       <div className="App">
-        <NavBar  />
+        <header>
+          <NavBar  />
+        </header>
+
         <Switch>
-          <Route exact path='/' component={Home} />
+          <main>
 
-          <Route exact path='/login' component={Login} />
+            <Route exact path='/' component={HomeContainer} />
 
-        
+            <Route exact path='/login' component={Login} />
+
+          </main>
         </Switch>
 
-
       </div>
-
-
     </Router>
+    </SearchContextProvider>
   );
 }
 
