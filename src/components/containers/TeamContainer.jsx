@@ -26,7 +26,7 @@ const TeamContainer = () => {
                         <p className="mb-0 me-2">Intelligence</p>
                     </Col>
                     <Col>
-                        <ProgressBar variant="info" now={teamStats.intelligence} label={teamStats.intelligence} className="w-100"/>
+                        <ProgressBar variant="info" now={teamStats.intelligencePer} label={teamStats.intelligencePer} className="w-100"/>
                     </Col>
                 </Row>
                 <Row className="d-flex align-items-center mb-1">
@@ -34,7 +34,7 @@ const TeamContainer = () => {
                         <p className="mb-0 me-2">Strength</p>
                     </Col>
                     <Col>
-                        <ProgressBar variant="success" now={teamStats.strength} label={teamStats.intelligence} className="w-100"/>
+                        <ProgressBar variant="success" now={teamStats.strengthPer} label={teamStats.strengthPer} className="w-100"/>
                     </Col>
                 </Row>
                 <Row className="d-flex align-items-center mb-1">
@@ -42,7 +42,7 @@ const TeamContainer = () => {
                         <p className="mb-0 me-2">Speed</p>
                     </Col>
                     <Col>
-                        <ProgressBar variant="primary" now={teamStats.speed} label={teamStats.speed} className="w-100" />
+                        <ProgressBar variant="primary" now={teamStats.speedPer} label={teamStats.speedPer} className="w-100" />
                     </Col>
                 </Row>
                 <Row className="d-flex align-items-center mb-1">
@@ -50,7 +50,7 @@ const TeamContainer = () => {
                         <p className="mb-0 me-2">Durability</p>
                     </Col>
                     <Col>
-                        <ProgressBar variant="warning" now={teamStats.durability} label={teamStats.durability} className="w-100" />
+                        <ProgressBar variant="warning" now={teamStats.durabilityPer} label={teamStats.durabilityPer} className="w-100" />
                     </Col>
                 </Row>
                 <Row className="d-flex align-items-center mb-1">
@@ -58,7 +58,7 @@ const TeamContainer = () => {
                         <p className="mb-0 me-2">Power</p>
                     </Col>
                     <Col>
-                        <ProgressBar variant="danger" now={teamStats.power} label={teamStats.power} className="w-100" />
+                        <ProgressBar variant="danger" now={teamStats.powerPer} label={teamStats.powerPer} className="w-100" />
                     </Col>
                 </Row>
                 <Row className="d-flex align-items-center mb-1">
@@ -66,7 +66,7 @@ const TeamContainer = () => {
                         <p className="mb-0 me-2">Combat</p>
                     </Col>
                     <Col>
-                        <ProgressBar variant="dark" now={teamStats.combat} label={teamStats.combat} className="w-100" />
+                        <ProgressBar variant="dark" now={teamStats.combatPer} label={teamStats.combatPer} className="w-100" />
                     </Col>
                 </Row> 
             </Container>

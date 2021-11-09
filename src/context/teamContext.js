@@ -13,21 +13,19 @@ const [teamStats, setTeamStats] = useState({
                                             speed:0,
                                             strength:0})
 
+
+let obj = {} 
 const addTeam = (e, hero) =>{
     if(team.indexOf(hero) === -1){
         setTeam([...team, hero])
-        let obj = {} 
         for(const [key, value] of Object.entries(hero.powerstats)){
-            if(value !== 'null'){
-                obj = {...obj, [key]: (teamStats[key] + parseInt(value)) / (team.length + 1)}//hay que tener la sumatoria y despues dividir
+            if(value !== 'null')  {
+                obj = {...obj, [key]: teamStats[key] + parseInt(value), [key+"Per"]: Math.round((teamStats[key] + parseInt(value)) / (team.length + 1))}
                 setTeamStats(obj)
             }else{
-                obj = {...obj, [key]: teamStats[key]}
+                obj = {...obj, [key]: teamStats[key], [key+"Per"]:teamStats[key+"Per"]}
                 setTeamStats(obj)
             }
-            console.log(key)
-            console.log(value)
-            
         }
     }else{
         alert('ya esta en el equipo')
@@ -36,12 +34,15 @@ const addTeam = (e, hero) =>{
 
 const removeTeam = (e, hero) => {
     setTeam(team.filter(item => item.id !== hero.id))
+    for(const [key, value] of Object.entries(hero.powerstats)){
+        if(value !== 'null')  {
+            obj = {...obj, [key]: teamStats[key] - parseInt(value), [key+"Per"]: Math.round((teamStats[key] - parseInt(value)) / (team.length - 1))}
+            setTeamStats(obj)
+        }else{
+            obj = {...obj, [key]: teamStats[key], [key+"Per"]:teamStats[key+"Per"]}
+            setTeamStats(obj)
+        }}
 }
-
-
-
-console.log(team)
-console.log(teamStats)
 return(
     <teamContext.Provider value={{team, teamStats,
                                 addTeam, removeTeam}}>

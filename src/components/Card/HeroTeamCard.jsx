@@ -30,7 +30,7 @@ const HeroTeamCard = ({ hero }) => {
                         <p className="mb-0 me-2">Strength</p>
                     </Col>
                     <Col>
-                        <ProgressBar variant="success" now={hero.powerstats.strength} label={hero.powerstats.intelligence} className="w-100"/>
+                        <ProgressBar variant="success" now={hero.powerstats.strength} label={hero.powerstats.strength} className="w-100"/>
                     </Col>
                 </Row>
                 <Row className="d-flex align-items-center mb-1">
