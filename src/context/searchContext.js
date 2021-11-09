@@ -1,36 +1,15 @@
-import { useState, createContext, useContext, useEffect} from 'react'
-
-import axios from 'axios'
+import { useState, createContext, useContext} from 'react'
 
 const searchContext = createContext([])
 export const UseSearchContext = () => useContext(searchContext)
 
-export default function SeachContextProvider ({children}) {
+export default function SearchContextProvider ({children}) {
     const [userSearch, setUserSearch] = useState("")
     const [heroSearched, setHeroSearched] = useState([])
 
-    const getApi = ()=> {
-        axios.get(`https://superheroapi.com/api/4859376540747559/search/${userSearch}`)
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err))
-    }
-        
-
-
-
- /*    const serchAxios = () => {
-        axios({
-            url:`https://superheroapi.com/api/4859376540747559/search/${userSearch}`
-        })
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err))
-    } */
-    
-
-    console.log(userSearch)
     return(
         <searchContext.Provider value={{heroSearched, userSearch,
-                                        setUserSearch, getApi}}>
+                                        setUserSearch, setHeroSearched}}>
         {children}
         </searchContext.Provider>
     )
