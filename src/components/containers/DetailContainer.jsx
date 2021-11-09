@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import HeroStats from '../Stats/HeroStats'
 
 const DetailContainer =  () => {
     const { hid } = useParams()
@@ -43,6 +44,8 @@ const DetailContainer =  () => {
                         <p className='fs-4'>Hair Color: <span>{heroDetail.appearance['hair-color']}</span></p>
                         <p className='fs-4'>Eyes Color: <span>{heroDetail.appearance['eye-color']}</span></p>
                         <p className='fs-4'>Work: <span>{heroDetail.work.occupation} in {heroDetail.work.base}</span></p>
+                        <p className='fs-4'>Alignment: <span>{heroDetail.biography.alignment}</span></p>
+                        <HeroStats hero={heroDetail}/>
                     </Col> 
                 </Row>
             </div>

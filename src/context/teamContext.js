@@ -16,6 +16,7 @@ const [teamStats, setTeamStats] = useState({
 
 let obj = {} 
 const addTeam = (e, hero) =>{
+    e.preventDefault()
     if(team.indexOf(hero) === -1){
         setTeam([...team, hero])
         for(const [key, value] of Object.entries(hero.powerstats)){
@@ -33,7 +34,9 @@ const addTeam = (e, hero) =>{
 }
 
 const removeTeam = (e, hero) => {
+    e.preventDefault()
     setTeam(team.filter(item => item.id !== hero.id))
+    if(team.indexOf(hero) !== -1){
     for(const [key, value] of Object.entries(hero.powerstats)){
         if(value !== 'null')  {
             obj = {...obj, [key]: teamStats[key] - parseInt(value), [key+"Per"]: Math.round((teamStats[key] - parseInt(value)) / (team.length - 1))}
@@ -41,7 +44,10 @@ const removeTeam = (e, hero) => {
         }else{
             obj = {...obj, [key]: teamStats[key], [key+"Per"]:teamStats[key+"Per"]}
             setTeamStats(obj)
-        }}
+        }}}else{
+            alert('No esta dentro del equipo')
+        }
+console.log(team.length)
 }
 return(
     <teamContext.Provider value={{team, teamStats,
