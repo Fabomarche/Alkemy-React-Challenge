@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
+import Loading from '../Loading/Loading'
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -26,7 +27,7 @@ const DetailContainer =  () => {
 
     return (
         <Container>
-            {heroDetail === "" ? <h2>loading</h2>
+            {heroDetail === "" ? <Loading/>
             :
             <div>
                 <h2 className="text-center">{heroDetail.name}</h2>
