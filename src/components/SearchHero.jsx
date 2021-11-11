@@ -6,8 +6,6 @@ import { Formik, Form, Field, ErrorMessage} from 'formik'
 
 import Container from 'react-bootstrap/Container'
 
-
-
 const SearchHero = () => {
     const { userSearch, setUserSearch, setHeroSearched  } = UseSearchContext()
 

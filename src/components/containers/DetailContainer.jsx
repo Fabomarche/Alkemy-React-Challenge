@@ -12,7 +12,6 @@ const DetailContainer =  () => {
     const { hid } = useParams()
     const [heroDetail, setHeroDetail] = useState("")
 
-
     useEffect(() => {
         axios.get(`https://www.superheroapi.com/api.php/4859376540747559/${hid}`)
         .then((response) =>  setHeroDetail(response.data))
@@ -20,17 +19,15 @@ const DetailContainer =  () => {
         console.log(error);
         })
     }, []) 
-
     
     console.log(heroDetail)
-
 
     return (
         <Container>
             {heroDetail === "" ? <Loading/>
             :
             <div>
-                <h2 className="text-center">{heroDetail.name}</h2>
+                <h2 className="text-center fs-1">{heroDetail.name}</h2>
                 <Row>
                     <Col>
                         <Container>
@@ -38,15 +35,20 @@ const DetailContainer =  () => {
                         </Container>
                     </Col>
                     <Col>
-                        <p className='fs-4'>Full Name: <span>{heroDetail.biography["full-name"]}</span></p>
-                        <p className='fs-4'>Aliases: <span>{heroDetail.biography.aliases}</span></p>
-                        <p className='fs-4'>Height: <span>{heroDetail.appearance.height}</span></p>
-                        <p className='fs-4'>Weight: <span>{heroDetail.appearance.weight}</span></p>
-                        <p className='fs-4'>Hair Color: <span>{heroDetail.appearance['hair-color']}</span></p>
-                        <p className='fs-4'>Eyes Color: <span>{heroDetail.appearance['eye-color']}</span></p>
-                        <p className='fs-4'>Work: <span>{heroDetail.work.occupation} in {heroDetail.work.base}</span></p>
-                        <p className='fs-4'>Alignment: <span>{heroDetail.biography.alignment}</span></p>
-                        <HeroStats hero={heroDetail}/>
+                    <ul >
+                        <li className='fs-4'>Full Name: <span>{heroDetail.biography["full-name"]}</span></li>
+                        <li className='fs-4'>Aliases: <span>{heroDetail.biography.aliases}</span></li>
+                        <li className='fs-4'>Height: <span>{heroDetail.appearance.height}</span></li>
+                        <li className='fs-4'>Weight: <span>{heroDetail.appearance.weight}</span></li>
+                        <li className='fs-4'>Hair Color: <span>{heroDetail.appearance['hair-color']}</span></li>
+                        <li className='fs-4'>Eyes Color: <span>{heroDetail.appearance['eye-color']}</span></li>
+                        <li className='fs-4'>Work: <span>{heroDetail.work.occupation} in {heroDetail.work.base}</span></li>
+                        <li className='fs-4'>Alignment: <span>{heroDetail.biography.alignment}</span></li>
+                        <li className='fs-4'>Publisher: <span>{heroDetail.biography.publisher}</span></li>
+                    </ul>
+                        <Container className="text-end">
+                            <HeroStats hero={heroDetail}/>
+                        </Container>
                     </Col> 
                 </Row>
             </div>

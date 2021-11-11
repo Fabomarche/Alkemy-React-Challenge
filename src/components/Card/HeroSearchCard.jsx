@@ -1,10 +1,8 @@
 import { Link as RouterLink } from "react-router-dom"
 import {UseTeamContext} from '../../context/teamContext'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button'
-import ProgressBar from 'react-bootstrap/ProgressBar'
+
 
 const HeroSearchCard = ({ hero }) => {
     const {addTeam, removeTeam} = UseTeamContext()

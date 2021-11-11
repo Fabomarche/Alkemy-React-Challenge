@@ -3,7 +3,6 @@ import Col from 'react-bootstrap/Col'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
 const HeroStats = ({hero}) => {
-    console.log(hero)
     return (
         <>
             <Row className="d-flex align-items-center mb-1">
