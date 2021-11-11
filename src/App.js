@@ -19,7 +19,7 @@ import DetailContainer from './components/containers/DetailContainer'
 
 
 function App() {
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
   console.log(login)
   return (
   
@@ -37,7 +37,9 @@ function App() {
                         <Route exact path='/home'>
                           <HomeContainer login={login}/>
                         </Route>
-                        <Route exact path='/heroDetail/:hid'component={DetailContainer}/>
+                        <Route exact path='/heroDetail/:hid'>
+                          <DetailContainer login={login}/>
+                        </Route>
                       </div>
                     :
                     <Route exact path='/'>

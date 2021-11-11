@@ -1,3 +1,4 @@
+import { Redirect } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -8,7 +9,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import HeroStats from '../Stats/HeroStats'
 
-const DetailContainer =  () => {
+const DetailContainer =  ({login}) => {
     const { hid } = useParams()
     const [heroDetail, setHeroDetail] = useState("")
 
@@ -24,6 +25,7 @@ const DetailContainer =  () => {
 
     return (
         <Container>
+            {!login && <Redirect to={'/'}/>}
             {heroDetail === "" ? <Loading/>
             :
             <div>

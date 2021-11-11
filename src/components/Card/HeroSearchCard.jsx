@@ -18,7 +18,6 @@ const HeroSearchCard = ({ hero }) => {
                     <Button variant="primary" className="mt-1">Details</Button>
                 </RouterLink>
                 <Button variant="success" className="mx-1 mt-1" onClick={(e) => addTeam(e, hero)}>Add</Button>
-                <Button variant="danger" className="mt-1" onClick={(e) => removeTeam(e, hero)}>Delete</Button>
                 </Card.Body>
             </Card>
         </>
