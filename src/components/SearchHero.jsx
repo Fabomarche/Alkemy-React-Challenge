@@ -29,7 +29,9 @@ const SearchHero = () => {
                 validate={(value) => {
                     
                     let errors = {}
-                    if (value.searchHero === "") errors.searchHero = "empty";
+                    if (value.searchHero === "") {
+                        errors.searchHero = "The search field is empty";
+                    }
                     return errors;
                 }}
                 
@@ -38,19 +40,24 @@ const SearchHero = () => {
                     }
                 }
             >
+                {( {errors} ) => (
                     <Form>
-                        <Container className="d-flex flex-row justify-content-center w-50">
+                        <Container className="d-flex flex-row justify-content-center w-50 mb-1">
                             <Field 
-                                className="form-control mb-3 w-50"
+                                className="form-control w-50"
                                 id='searchHero'
                                 name='searchHero'
                                 
                             />
-                            
-                            
-                            <button type='submit' className="btn btn-info w-25 mb-3">Search</button>
-                        </Container>
+
+                            <button type='submit' className="btn btn-info w-25">Search</button>
+                            </Container>
+
+                            <ErrorMessage name='searchHero' component={() => (
+                                <div className="text-danger">{errors.searchHero}</div>
+                            )} />
                     </Form>
+                )}
             </Formik>
         </Container>
     )

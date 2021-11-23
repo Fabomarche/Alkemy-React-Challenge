@@ -1,23 +1,17 @@
-import { Redirect } from "react-router-dom"
 import SearchHero from '../SearchHero'
 import HerosSerachedList from './HerosSerachedList'
 import TeamContainer from './TeamContainer'
-import Login from "../../components/Login";
+import { Redirect } from 'react-router'
 
 
-const HomeContainer = ({login}) => {
+
+const HomeContainer = ({token}) => {
     
-    console.log(login)
     return (
         <>
-            {login === false ? <Login />
-                    :
-                    <div>
-                        <SearchHero />
-                        <TeamContainer />
-                        <HerosSerachedList />
-                    </div>
-            }
+            <SearchHero />
+            <TeamContainer />
+            <HerosSerachedList />
         </>
     )
 

@@ -19,7 +19,10 @@ import DetailContainer from './components/containers/DetailContainer'
 
 
 function App() {
-  const [login, setLogin] = useState(true)
+  const [login, setLogin] = useState(false)
+  const [token, setToken] = useState("")
+  console.log(token)
+  console.log(token === localStorage.token)
   console.log(login)
   return (
   
@@ -32,23 +35,25 @@ function App() {
         </header>
         <Switch>
           <main>
-            {login && <Redirect to='/home'/>}
-            {login ? <div>
-                        <Route exact path='/home'>
-                          <HomeContainer login={login}/>
-                        </Route>
-                        <Route exact path='/heroDetail/:hid'>
-                          <DetailContainer login={login}/>
-                        </Route>
+            { localStorage.Token ?
+                      <div>
+                          <Route exact path='/home'>
+                            <HomeContainer token={token}/>
+                          </Route>
+                          <Route exact path='/heroDetail/:hid'>
+                            <DetailContainer token={token}/>
+                          </Route>
                       </div>
-                    :
-                    <Route exact path='/'>
-                      <Login login={login} setLogin={setLogin}/>
-                    </Route>
-                    
-                    
-          }
+                      :
+                      <Redirect to='/'/>
+                      }
 
+            {login && <Redirect to='/home'/>}
+
+            <Route exact path='/'>
+              <Login login={login} setLogin={setLogin} token={token} setToken={setToken}/>
+            </Route>
+            
           </main>
         </Switch>
 

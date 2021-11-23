@@ -9,7 +9,7 @@ const HeroTeamCard = ({ hero }) => {
 
     return (
         <>
-            <Card style={{ width: '14rem' }} className="m-1 text-center">
+            <Card style={{ width: '14rem' }} className="m-1 text-center bg-dark text-white border-white">
                 <Card.Img variant="top" src={hero.image.url} />
                 <Card.Body >
                 <Card.Title>{hero.name}</Card.Title>
@@ -18,9 +18,9 @@ const HeroTeamCard = ({ hero }) => {
                 <HeroStats hero={hero}/>
 
                 <RouterLink to={`/heroDetail/${hero.id}`}>
-                    <Button variant="primary" className="mt-1 me-1">Details</Button>
+                    <Button variant="outline-secondary" className="mt-1 me-1">Details</Button>
                 </RouterLink>
-                <Button variant="danger" className="mt-1" onClick={(e) => removeTeam(e, hero)}>Delete</Button>
+                <Button variant="outline-danger" className="mt-1" onClick={(e) => removeTeam(e, hero)}>Delete</Button>
                 </Card.Body>
             </Card>
         </>

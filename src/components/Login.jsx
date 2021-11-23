@@ -1,13 +1,11 @@
-import { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Container from 'react-bootstrap/Container';
 import axios from 'axios'
 import {  Redirect } from "react-router-dom"
 
-const Login = ({login, setLogin}) => {
-    const [token, setToken] = useState("")
-    login && localStorage.setItem('Token', token)
-	console.log(login)
+const Login = ({login, setLogin, token, setToken}) => {
+    
+
     return (
         <Container>
 
@@ -43,6 +41,7 @@ const Login = ({login, setLogin}) => {
                         email: value.email,
                         password: value.password
                     }).then(res => {
+						localStorage.setItem('Token', res.data.token)
                         setToken(res.data.token)
 						setLogin(true)
                     }).catch(err => alert(err))
@@ -76,7 +75,7 @@ const Login = ({login, setLogin}) => {
 						</div>
 
 						<button type='submit' className="btn btn-primary">Login</button>
-						{login && <Redirect to='/heroDetail/645' />}
+						{login && <Redirect to='/home' />}
 
 					</Form>
 				)}
