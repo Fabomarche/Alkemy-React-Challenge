@@ -8,7 +8,7 @@ import TeamGlobalStats from '../Stats/TeamGlobalStats'
 const TeamContainer = () => {
     const {team} = UseTeamContext()
     return (
-        <Container>
+        <Container className="bg-white">
             <h3 className="text-center">Your Hero Team</h3>
             {team.length === 0 ? <h3>Team Empty</h3>
             :

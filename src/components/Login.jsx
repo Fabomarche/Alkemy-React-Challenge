@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import axios from 'axios'
 import {  Redirect } from "react-router-dom"
 
-const Login = ({login, setLogin, token, setToken}) => {
+const Login = ({login, setLogin, setToken}) => {
     
 
     return (
@@ -48,7 +48,8 @@ const Login = ({login, setLogin, token, setToken}) => {
 				}}
 			>
 				{( {errors} ) => (
-					<Form className="">
+					<Form className="container w-50 d-flex flex-column align-self-center py-3">
+						<h3>Sign in</h3>
 						<div>
 							<label htmlFor="email" className="form-label">E-mail</label>
 							<Field 
@@ -74,7 +75,7 @@ const Login = ({login, setLogin, token, setToken}) => {
 							)} />
 						</div>
 
-						<button type='submit' className="btn btn-primary">Login</button>
+						<button type='submit' className="btn btn-info my-2">Login</button>
 						{login && <Redirect to='/home' />}
 
 					</Form>

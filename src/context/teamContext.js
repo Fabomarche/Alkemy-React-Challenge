@@ -25,7 +25,7 @@ const addTeam = (e, hero) => {
         alert("solo se pueden agregar 3 heroes buenos al equipo")
     }else if(alignmentCount.bad === 3 && hero.biography.alignment === "bad"){
         alert("solo se pueden agregar 3 heroes malos al equipo")
-    }else if(team.indexOf(hero) !== -1){
+    }else if(team.indexOf(hero) !== -1){//esta condicion a veces no se respeta
         alert('Este heroe ya esta en el equipo')
     }else{
         console.log(team)

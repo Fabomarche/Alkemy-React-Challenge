@@ -5,7 +5,7 @@ import { Redirect } from 'react-router'
 
 
 
-const HomeContainer = ({token}) => {
+const HomeContainer = () => {
     
     return (
         <>

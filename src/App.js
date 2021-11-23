@@ -21,9 +21,6 @@ import DetailContainer from './components/containers/DetailContainer'
 function App() {
   const [login, setLogin] = useState(false)
   const [token, setToken] = useState("")
-  console.log(token)
-  console.log(token === localStorage.token)
-  console.log(login)
   return (
   
     <TeamContextProvider>
@@ -38,20 +35,20 @@ function App() {
             { localStorage.Token ?
                       <div>
                           <Route exact path='/home'>
-                            <HomeContainer token={token}/>
+                            <HomeContainer />
                           </Route>
                           <Route exact path='/heroDetail/:hid'>
-                            <DetailContainer token={token}/>
+                            <DetailContainer />
                           </Route>
                       </div>
                       :
                       <Redirect to='/'/>
                       }
 
-            {login && <Redirect to='/home'/>}
+            {localStorage.Token && <Redirect to='/home'/>}
 
             <Route exact path='/'>
-              <Login login={login} setLogin={setLogin} token={token} setToken={setToken}/>
+              <Login login={login} setLogin={setLogin} setToken={setToken}/>
             </Route>
             
           </main>
