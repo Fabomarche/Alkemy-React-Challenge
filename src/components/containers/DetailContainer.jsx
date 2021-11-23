@@ -8,18 +8,32 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import HeroStats from '../Stats/HeroStats'
 
-const DetailContainer =  ({}) => {
+const DetailContainer =  () => {
     const { hid } = useParams()
     const [heroDetail, setHeroDetail] = useState("")
+    const [alignmentColor, setAlignmentColor] = useState("")
 
     useEffect(() => {
         axios.get(`https://www.superheroapi.com/api.php/4859376540747559/${hid}`)
-        .then((response) =>  setHeroDetail(response.data))
+        .then((response) =>  {
+            setHeroDetail(response.data)
+            if(heroDetail.biography.alignment === "bad"){
+                setAlignmentColor("danger")
+            }else if(heroDetail.biography.alignment === "good"){
+                setAlignmentColor("success")
+            }else{
+                setAlignmentColor("primary")
+            }
+        })
         .catch((error) => {
         console.log(error);
         })
-    }, []) 
+    }, [heroDetail]) 
     
+
+        
+
+
     console.log(heroDetail)
 
     return (
@@ -47,7 +61,7 @@ const DetailContainer =  ({}) => {
                         <li className='fs-4'>Publisher: <span>{heroDetail.biography.publisher}</span></li>
                     </ul>
                         <Container className="text-end">
-                            <HeroStats hero={heroDetail}/>
+                            <HeroStats hero={heroDetail} alignmentColor={alignmentColor}/>
                         </Container>
                     </Col> 
                 </Row>

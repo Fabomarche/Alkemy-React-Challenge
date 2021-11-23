@@ -1,22 +1,9 @@
-import { useState, useEffect } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
-const HeroStats = ({hero}) => {
-    const [alignmentColor, setAlignmentColor] = useState("")
-
-    useEffect(() => {
-        if(hero.biography.alignment === "bad"){
-            setAlignmentColor("danger")
-        }else if(hero.biography.alignment === "good"){
-            setAlignmentColor("success")
-        }else{
-            setAlignmentColor("secondary")
-        }
-
-    }, [alignmentColor])
-
+const HeroStats = ({hero, alignmentColor}) => {
+    
     return (
         <>
             <Row className="d-flex align-items-center mb-1">

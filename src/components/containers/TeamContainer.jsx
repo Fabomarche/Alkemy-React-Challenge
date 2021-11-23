@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import {UseTeamContext} from '../../context/teamContext'
 
 import HeroTeamCard from '../Card/HeroTeamCard'
